@@ -1,5 +1,6 @@
 package com.example.notepad;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -11,10 +12,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
     private TextView mgotoforgotpassword;
     private EditText mloginemail, mloginpassword;
     private RelativeLayout mloginbutton, mgotosignup;
+    private FirebaseAuth firebaseAuth;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -26,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
         mloginbutton = findViewById(R.id.loginbutton);
         mgotoforgotpassword = findViewById(R.id.gotoforgotpassword);
         mgotosignup = findViewById(R.id.gotosignup);
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+        if(firebaseUser!=null){
+            finish();
+            startActivity(new Intent(MainActivity.this,notesActivity.class));
+        }
 
 
         mgotosignup.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +65,31 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "All Fields are required", Toast.LENGTH_SHORT).show();
                 } else {
                 //login the user
+                    firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                checkEmailVerification();
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(), "Account Doesn't Exist", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        private void checkEmailVerification() {
+                            FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+                            if(firebaseUser.isEmailVerified()){
+                                Toast.makeText(getApplicationContext(), "Logged In", Toast.LENGTH_SHORT).show();
+                                finish();
+                                startActivity(new Intent(MainActivity.this,notesActivity.class));
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(), "Verification is required", Toast.LENGTH_SHORT).show();
+                                firebaseAuth.signOut();
+                            }
+                        }
+                    });
+
                 }
             }
             });
