@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar mprogressbarofmainactivity;
 
 
-    @SuppressLint("MissingInflatedId")
+   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

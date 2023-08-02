@@ -11,9 +11,9 @@ public class firebasemodel {
 
     }
 
-    public firebasemodel(String title,String content){
-        this.title=title;
-        this.content=content;
+    public firebasemodel(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 
     public String getTitle() {

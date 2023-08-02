@@ -26,41 +26,58 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="150dp"
-        android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginRight="30dp"-->
+<!--        android:layout_marginBottom="150dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:orientation="vertical">-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginRight="20dp"
-            android:text="Welcome Back !"
-            android:textColor="#FFAB00"
-            android:textSize="42sp"
-            android:textStyle="bold" >
-        </TextView>
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="160dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginRight="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="Welcome Back !"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="#FFAB00"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="42sp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textStyle="bold" >&ndash;&gt;-->
+<!--&lt;!&ndash;        </TextView>&ndash;&gt;-->
 
 
-        <TextView
-            android:id="@id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Log In To Continue"
-            android:textColor="#FF6D00"
-            android:textSize="25sp"
-            android:textStyle="bold" >
-        </TextView>
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@id/login"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="270dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginRight="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="Log In To Continue"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="#FF6D00"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="25sp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textStyle="bold" >&ndash;&gt;-->
+<!--&lt;!&ndash;        </TextView>&ndash;&gt;-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lotAnim"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.588"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation_lktpxd14" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
