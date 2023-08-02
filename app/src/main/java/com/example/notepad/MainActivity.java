@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout mloginbutton, mgotosignup;
     private FirebaseAuth firebaseAuth;
 
+    ProgressBar mprogressbarofmainactivity;
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         mloginbutton = findViewById(R.id.loginbutton);
         mgotoforgotpassword = findViewById(R.id.gotoforgotpassword);
         mgotosignup = findViewById(R.id.gotosignup);
+        mprogressbarofmainactivity=findViewById(R.id.progressbarofmainactivity);
+
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
         if(firebaseUser!=null){
@@ -65,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "All Fields are required", Toast.LENGTH_SHORT).show();
                 } else {
                 //login the user
+
+                    mprogressbarofmainactivity.setVisibility(View.VISIBLE);
+
                     firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -73,17 +82,20 @@ public class MainActivity extends AppCompatActivity {
                             }
                             else {
                                 Toast.makeText(getApplicationContext(), "Account Doesn't Exist", Toast.LENGTH_SHORT).show();
+
+                                mprogressbarofmainactivity.setVisibility(View.INVISIBLE);
                             }
                         }
 
                         private void checkEmailVerification() {
                             FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
-                            if(firebaseUser.isEmailVerified()){
+                            if(firebaseUser.isEmailVerified()==true){
                                 Toast.makeText(getApplicationContext(), "Logged In", Toast.LENGTH_SHORT).show();
                                 finish();
                                 startActivity(new Intent(MainActivity.this,notesActivity.class));
                             }
                             else {
+                                mprogressbarofmainactivity.setVisibility(View.INVISIBLE);
                                 Toast.makeText(getApplicationContext(), "Verification is required", Toast.LENGTH_SHORT).show();
                                 firebaseAuth.signOut();
                             }

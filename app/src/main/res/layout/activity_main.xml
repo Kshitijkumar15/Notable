@@ -7,6 +7,17 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gotoforgotpassword"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:id="@+id/progressbarofmainactivity">
+
+    </ProgressBar>
+
     <RelativeLayout
         android:id="@+id/center"
         android:layout_width="match_parent"
@@ -131,7 +142,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="630dp">
+        android:layout_marginTop="660dp">
 
         <TextView
             android:layout_width="match_parent"
