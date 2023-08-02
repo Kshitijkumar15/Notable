@@ -43,7 +43,7 @@ public class notedetails extends AppCompatActivity {
         });
 
         mcontentofnotedetail.setText(data.getStringExtra("content"));
-        mcontentofnotedetail.setText(data.getStringExtra("title"));
+        mtitleofnotedetail.setText(data.getStringExtra("title"));
 
     }
     @Override

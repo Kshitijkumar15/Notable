@@ -1,6 +1,7 @@
 package com.example.notepad;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -35,9 +36,9 @@ import java.util.List;
 import java.util.Random;
 
 public class notesActivity extends AppCompatActivity {
+//    AlertDialog.Builder builder;
     FloatingActionButton mcreatenotesfab;
     private FirebaseAuth firebaseAuth;
-
     RecyclerView mrecylerview;
     StaggeredGridLayoutManager staggeredGridLayoutManager;
 
@@ -48,13 +49,14 @@ public class notesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        getSupportActionBar().setTitle("Notes");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes);
+        setContentView(R.layout.activity_notesactivity);
         mcreatenotesfab = findViewById(R.id.createnotefab);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
-//     getSupportActionBar().setTitle("Notes");
+
 
         mcreatenotesfab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,29 +67,25 @@ public class notesActivity extends AppCompatActivity {
 
         Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").orderBy("title", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<firebasemodel> allusernotes = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query, firebasemodel.class).build();
-
         noteAdapter = new FirestoreRecyclerAdapter<firebasemodel, NoteViewHolder>(allusernotes) {
+
             @Override
             protected void onBindViewHolder(@NonNull NoteViewHolder noteViewHolder, int i, @NonNull firebasemodel firebasemodel) {
-                ImageView popup=noteViewHolder.itemView.findViewById(R.id.menupopupbutton);
-
-
-                int colorcode=getRandomColor();
-                noteViewHolder.mnote.setBackgroundColor(noteViewHolder.itemView.getResources().getColor(colorcode,null));
-                noteViewHolder.notetitle.setText(firebasemodel.getContent());
+                ImageView popup = noteViewHolder.itemView.findViewById(R.id.menupopupbutton);
+                int colorcode = getRandomColor();
+                noteViewHolder.mnote.setBackgroundColor(noteViewHolder.itemView.getResources().getColor(colorcode, null));
+                noteViewHolder.notetitle.setText(firebasemodel.getTitle());
                 noteViewHolder.notecontent.setText(firebasemodel.getContent());
-
-                String docId=noteAdapter.getSnapshots().getSnapshot(i).getId();
+                String docId = noteAdapter.getSnapshots().getSnapshot(i).getId();
 
                 noteViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         //open note detail
-                        Intent intent=new Intent(v.getContext(),notedetails.class);
-                        intent.putExtra("title",firebasemodel.getTitle());
-                        intent.putExtra("content",firebasemodel.getContent());
+                        Intent intent = new Intent(v.getContext(), notedetails.class);
+                        intent.putExtra("title", firebasemodel.getTitle());
+                        intent.putExtra("content", firebasemodel.getContent());
                         intent.putExtra("nodeId",docId);
-
                         v.getContext().startActivity(intent);
 //                        Toast.makeText(getApplicationContext(), "Note opened", Toast.LENGTH_SHORT).show();
                     }
@@ -96,15 +94,15 @@ public class notesActivity extends AppCompatActivity {
                 popup.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        PopupMenu popupMenu=new PopupMenu(v.getContext(),v);
+                        PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
                         popupMenu.setGravity(Gravity.END);
                         popupMenu.getMenu().add("Edit").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(@NonNull MenuItem item) {
-                                Intent intent=new Intent(v.getContext(),editnoteactivity.class);
-                                intent.putExtra("title",firebasemodel.getTitle());
-                                intent.putExtra("content",firebasemodel.getContent());
-                                intent.putExtra("nodeId",docId);
+                                Intent intent = new Intent(v.getContext(), editnoteactivity.class);
+                                intent.putExtra("title", firebasemodel.getTitle());
+                                intent.putExtra("content", firebasemodel.getContent());
+                                intent.putExtra("nodeId", docId);
                                 v.getContext().startActivity(intent);
                                 return false;
                             }
@@ -116,7 +114,7 @@ public class notesActivity extends AppCompatActivity {
 
 //                                Toast.makeText(getApplicationContext(), "Note deleted", Toast.LENGTH_SHORT).show();
 
-                                DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(docId);
+                                DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(docId);
                                 documentReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
@@ -200,8 +198,8 @@ public class notesActivity extends AppCompatActivity {
     }
 
 
-    private int getRandomColor(){
-        List<Integer> colorcode=new ArrayList<>();
+    private int getRandomColor() {
+        List<Integer> colorcode = new ArrayList<>();
         colorcode.add(R.color.gray);
         colorcode.add(R.color.green);
         colorcode.add(R.color.lightgreen);
@@ -209,9 +207,29 @@ public class notesActivity extends AppCompatActivity {
         colorcode.add(R.color.purple);
         colorcode.add(R.color.pink);
 
-        Random random=new Random();
-        int number=random.nextInt(colorcode.size());
+        Random random = new Random();
+        int number = random.nextInt(colorcode.size());
         return colorcode.get(number);
 
     }
+//
+//    @Override
+//    public void onBackPressed() {
+//        builder.setTitle("Quit");
+//        builder.setMessage("Do you really want to quit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                finishAffinity();
+////                finish();
+////                System.exit(0);
+//            }
+//        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.cancel();
+//            }
+//        });
+//        AlertDialog alert = builder.create();
+//        alert.show();
+//    }
 }

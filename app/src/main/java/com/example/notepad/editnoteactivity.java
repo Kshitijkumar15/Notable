@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class editnoteactivity extends AppCompatActivity {
     Intent data;
-    EditText medittitleofnote,meditcontentofnote;
+    EditText medittitleofnote, meditcontentofnote;
     FloatingActionButton msaveeditnote;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
@@ -35,38 +35,36 @@ public class editnoteactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editnoteactivity);
-        meditcontentofnote=findViewById(R.id.editcontentofnote);
-        medittitleofnote=findViewById(R.id.edittitleofnote);
-        msaveeditnote=findViewById(R.id.saveeditnote);
-        data=getIntent();
+        meditcontentofnote = findViewById(R.id.editcontentofnote);
+        medittitleofnote = findViewById(R.id.edittitleofnote);
+        msaveeditnote = findViewById(R.id.saveeditnote);
+        data = getIntent();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        firebaseFirestore=FirebaseFirestore.getInstance();
-        firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
-
-        Toolbar toolbar=findViewById(R.id.toolbarofeditnote);
+        Toolbar toolbar = findViewById(R.id.toolbarofeditnote);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         msaveeditnote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String newtitle=medittitleofnote.getText().toString();
-                String newcontent=medittitleofnote.getText().toString();
-                if(newtitle.isEmpty()|| newcontent.isEmpty()){
+                String newtitle = medittitleofnote.getText().toString();
+                String newcontent = meditcontentofnote.getText().toString();
+                if (newtitle.isEmpty() || newcontent.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Something is empty", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else {
-                    DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(data.getStringExtra("noteId"));
-                    Map<String, Object> note=new HashMap<>();
-                    note.put("title",newtitle);
-                    note.put("content",newcontent);
+                } else {
+                    DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(data.getStringExtra("noteId"));
+                    Map<String, Object> note = new HashMap<>();
+                    note.put("title", newtitle);
+                    note.put("content", newcontent);
                     documentReference.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
 
-                            startActivity(new Intent(editnoteactivity.this,notesActivity.class));
+                            startActivity(new Intent(editnoteactivity.this, notesActivity.class));
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -80,8 +78,8 @@ public class editnoteactivity extends AppCompatActivity {
         });
 
 
-        String notetitle=data.getStringExtra("title");
-        String notecontent=data.getStringExtra("content");
+        String notetitle = data.getStringExtra("title");
+        String notecontent = data.getStringExtra("content");
         meditcontentofnote.setText(notecontent);
         medittitleofnote.setText(notetitle);
 

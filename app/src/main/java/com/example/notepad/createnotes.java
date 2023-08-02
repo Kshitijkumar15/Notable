@@ -1,8 +1,10 @@
 package com.example.notepad;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class createnotes extends AppCompatActivity {
+
     private EditText mcreatetitleofnote, mcreatecontentofnote;
     FloatingActionButton msavenote;
     FirebaseAuth firebaseAuth;
@@ -91,4 +94,5 @@ public class createnotes extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
-}
+
+    }
