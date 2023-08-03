@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFC2EF"
+    android:background="#00B8D4"
     tools:context=".notesActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -22,10 +22,12 @@
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/recylerview"
-        android:scrollbars="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="800dp"
+        android:scrollbars="vertical"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="31dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -35,7 +35,7 @@
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
-                    android:text="This is working"
+                    android:hint="This is working"
                     android:textColor="@color/black"
                     android:textSize="23sp">
 

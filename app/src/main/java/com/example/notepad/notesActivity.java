@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -36,7 +37,7 @@ import java.util.List;
 import java.util.Random;
 
 public class notesActivity extends AppCompatActivity {
-//    AlertDialog.Builder builder;
+    //    AlertDialog.Builder builder;
     FloatingActionButton mcreatenotesfab;
     private FirebaseAuth firebaseAuth;
     RecyclerView mrecylerview;
@@ -65,7 +66,7 @@ public class notesActivity extends AppCompatActivity {
             }
         });
 
-        Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").orderBy("title", Query.Direction.ASCENDING);
+        Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes");
         FirestoreRecyclerOptions<firebasemodel> allusernotes = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query, firebasemodel.class).build();
         noteAdapter = new FirestoreRecyclerAdapter<firebasemodel, NoteViewHolder>(allusernotes) {
 
@@ -85,7 +86,7 @@ public class notesActivity extends AppCompatActivity {
                         Intent intent = new Intent(v.getContext(), notedetails.class);
                         intent.putExtra("title", firebasemodel.getTitle());
                         intent.putExtra("content", firebasemodel.getContent());
-                        intent.putExtra("nodeId",docId);
+                        intent.putExtra("nodeId", docId);
                         v.getContext().startActivity(intent);
 //                        Toast.makeText(getApplicationContext(), "Note opened", Toast.LENGTH_SHORT).show();
                     }
@@ -110,23 +111,35 @@ public class notesActivity extends AppCompatActivity {
 
                         popupMenu.getMenu().add("Delete").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
-                            public boolean onMenuItemClick(@NonNull MenuItem item) {
-
-//                                Toast.makeText(getApplicationContext(), "Note deleted", Toast.LENGTH_SHORT).show();
-
-                                DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(docId);
-                                documentReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            public boolean onMenuItemClick(MenuItem item) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(com.example.notepad.notesActivity.this);
+                                builder.setTitle("Delete");
+                                builder.setMessage("Are you sure you want to delete?");
+                                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
-                                    public void onSuccess(Void unused) {
-                                        Toast.makeText(getApplicationContext(), "Note deleted", Toast.LENGTH_SHORT).show();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(docId);
+                                        documentReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Toast.makeText(v.getContext(), "This note is deleted", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(v.getContext(), "Failed To Delete", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        });
                                     }
                                 });
+                                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
 
+                                    }
+                                });
+                                builder.create().show();
                                 return false;
                             }
                         });
@@ -212,24 +225,5 @@ public class notesActivity extends AppCompatActivity {
         return colorcode.get(number);
 
     }
-//
-//    @Override
-//    public void onBackPressed() {
-//        builder.setTitle("Quit");
-//        builder.setMessage("Do you really want to quit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                finishAffinity();
-////                finish();
-////                System.exit(0);
-//            }
-//        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.cancel();
-//            }
-//        });
-//        AlertDialog alert = builder.create();
-//        alert.show();
-//    }
+
 }
