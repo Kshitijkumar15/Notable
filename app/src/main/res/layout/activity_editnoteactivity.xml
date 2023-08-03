@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbarofeditnote"
-        android:background="@color/lightgreen">
+        android:background="@color/pink">
 
         <EditText
             android:layout_width="match_parent"
@@ -45,7 +45,7 @@
         android:layout_marginRight="30dp"
         android:layout_gravity="bottom|end"
         android:id="@+id/saveeditnote"
-        android:src="@drawable/update"
+        android:src="@drawable/refresh"
         app:maxImageSize="45dp">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>

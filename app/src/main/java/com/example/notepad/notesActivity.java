@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Random;
 
 public class notesActivity extends AppCompatActivity {
-    //    AlertDialog.Builder builder;
+    AlertDialog.Builder builder;
     FloatingActionButton mcreatenotesfab;
     private FirebaseAuth firebaseAuth;
     RecyclerView mrecylerview;
@@ -46,11 +46,12 @@ public class notesActivity extends AppCompatActivity {
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
 
+
     FirestoreRecyclerAdapter<firebasemodel, NoteViewHolder> noteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        getSupportActionBar().setTitle("Notes");
+//        getSupportActionBar();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notesactivity);
         mcreatenotesfab = findViewById(R.id.createnotefab);
@@ -166,6 +167,7 @@ public class notesActivity extends AppCompatActivity {
 
     }
 
+
     public class NoteViewHolder extends RecyclerView.ViewHolder {
         private final TextView notetitle;
         private final TextView notecontent;
@@ -185,15 +187,15 @@ public class notesActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.logout) {
-            firebaseAuth.signOut();
-            finish();
-            startActivity(new Intent(notesActivity.this, MainActivity.class));
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if (item.getItemId() == R.id.logout) {
+//            firebaseAuth.signOut();
+//            finish();
+//            startActivity(new Intent(notesActivity.this, MainActivity.class));
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     protected void onStart() {
@@ -206,9 +208,28 @@ public class notesActivity extends AppCompatActivity {
         super.onStop();
         if (noteAdapter != null) {
             noteAdapter.stopListening();
+
         }
 
     }
+//    @Override
+//    public void onBackPressed() {
+//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(notesActivity.this);
+//        builder.setTitle("Quit");
+//        builder.setMessage("Do you really want to quit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                finishAffinity();
+//            }
+//        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.cancel();
+//            }
+//        });
+//        AlertDialog alert = builder.create();
+//        alert.show();
+//    }
 
 
     private int getRandomColor() {
@@ -225,5 +246,30 @@ public class notesActivity extends AppCompatActivity {
         return colorcode.get(number);
 
     }
-
+//    @Override
+//    public void onBackPressed() {
+////        super.onBackPressed();
+//     finishAffinity();
+//    }
+@Override
+public void onBackPressed() {
+    AlertDialog.Builder alertDialog = new AlertDialog.Builder(notesActivity.this);
+    alertDialog.setMessage("Do you want to continue ?");
+    alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+           finishAffinity();
+        }
+    });
+    alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            dialog.cancel();
+        }
+    });
+    alertDialog.show();
 }
+}
+
+
+

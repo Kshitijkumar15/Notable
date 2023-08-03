@@ -27,17 +27,19 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
+        android:id="@+id/contentofnotedetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="17sp"
+        android:layout_below="@id/toolbarofnotedetail"
+        android:layout_marginTop="2dp"
         android:background="@color/background"
         android:gravity="center"
-        android:textColor="@color/black"
         android:hint="Enter here"
-        android:layout_below="@id/toolbarofnotedetail"
-        android:id="@+id/contentofnotedetail">
+        android:textColor="@color/black"
+        android:textSize="17sp">
 
     </TextView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -47,8 +49,8 @@
         android:layout_marginRight="30dp"
         android:layout_gravity="bottom|end"
         android:id="@+id/gotoeditnote"
-        android:src="@drawable/editbutton"
-        app:maxImageSize="45dp">
+        android:src="@drawable/study"
+        app:maxImageSize="50dp">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

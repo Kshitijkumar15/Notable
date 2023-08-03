@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class createnotes extends AppCompatActivity {
-
+    AlertDialog.Builder builder;
     private EditText mcreatetitleofnote, mcreatecontentofnote;
     FloatingActionButton msavenote;
     FirebaseAuth firebaseAuth;
@@ -42,9 +42,9 @@ public class createnotes extends AppCompatActivity {
         mcreatecontentofnote = findViewById(R.id.createcontentofnote);
         mcreatetitleofnote = findViewById(R.id.createtitleofnote);
 
-        Toolbar toolbar = findViewById(R.id.toolbarofcreatenote);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        Toolbar toolbar = findViewById(R.id.toolbarofcreatenote);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -74,6 +74,8 @@ public class createnotes extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(getApplicationContext(), "Failed to create note", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(createnotes.this, notesActivity.class));
+
 
                         }
                     });
@@ -85,14 +87,37 @@ public class createnotes extends AppCompatActivity {
 
     }
 
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        if (item.getItemId() == android.R.id.home) {
+//            onBackPressed();
+//        }
+//        return super.onOptionsItemSelected(item);
+//
+//    }
+//@Override
+//public void onBackPressed() {
+//    builder.setTitle("Quit");
+//    builder.setMessage("Do you really want to quit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//        @Override
+//        public void onClick(DialogInterface dialogInterface, int i) {
+//            finishAffinity();
+//        }
+//    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+//        @Override
+//        public void onClick(DialogInterface dialogInterface, int i) {
+//            dialogInterface.cancel();
+//        }
+//    });
+//    AlertDialog alert = builder.create();
+//    alert.show();
+//}
+
+
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-        }
-        return super.onOptionsItemSelected(item);
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(createnotes.this,notesActivity.class));
     }
-
-    }
+}
