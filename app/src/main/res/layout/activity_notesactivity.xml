@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00B8D4"
+    android:background="#FFFFFF"
     tools:context=".notesActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -15,6 +15,7 @@
         android:layout_marginBottom="30dp"
         android:layout_marginRight="30dp"
         android:layout_gravity="bottom|end"
+        android:background="#64DD17"
         android:id="@+id/createnotefab"
         android:src="@drawable/baseline_add_circle_24"
         app:maxImageSize="50dp">

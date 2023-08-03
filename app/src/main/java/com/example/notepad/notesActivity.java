@@ -217,7 +217,7 @@ public class notesActivity extends AppCompatActivity {
         colorcode.add(R.color.green);
         colorcode.add(R.color.lightgreen);
         colorcode.add(R.color.skyblue);
-        colorcode.add(R.color.purple);
+        colorcode.add(R.color.cyan);
         colorcode.add(R.color.pink);
 
         Random random = new Random();

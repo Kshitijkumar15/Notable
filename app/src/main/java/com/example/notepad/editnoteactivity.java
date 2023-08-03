@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,9 +54,11 @@ public class editnoteactivity extends AppCompatActivity {
                 String newcontent = meditcontentofnote.getText().toString();
                 if (newtitle.isEmpty() || newcontent.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Something is empty", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(data.getStringExtra("noteId"));
+                }
+                else
+                {
+
+                    DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(data.getStringExtra("nodeId"));
                     Map<String, Object> note = new HashMap<>();
                     note.put("title", newtitle);
                     note.put("content", newcontent);

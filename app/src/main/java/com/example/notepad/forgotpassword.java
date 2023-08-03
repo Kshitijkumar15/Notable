@@ -18,8 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class forgotpassword extends AppCompatActivity {
     private EditText mforgotpassword;
-    private Button mpasswordrecover;
-    private TextView mgobacktologin;
+//    private Button
+    private TextView mgobacktologin,mpasswordrecover;
 
     FirebaseAuth firebaseAuth;
 

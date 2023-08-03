@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="17sp"
-        android:background="#DFBEF4"
+        android:background="@color/background"
         android:gravity="center"
         android:textColor="@color/black"
         android:hint="Enter here"

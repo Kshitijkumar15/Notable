@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background"
     tools:context=".createnotes">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbarofcreatenote"
-        android:background="#0091EA">
+        android:background="#FBFBFB">
 
         <EditText
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
     android:textSize="16sp"
-        android:background="#00B8D4"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:textColor="@color/black"
         android:hint="Enter here"

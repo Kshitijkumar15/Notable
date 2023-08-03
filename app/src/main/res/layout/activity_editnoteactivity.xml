@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbarofeditnote"
-        android:background="@color/white">
+        android:background="@color/lightgreen">
 
         <EditText
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="16sp"
-        android:background="#DFBEF4"
+        android:background="@color/background"
         android:gravity="center"
         android:textColor="@color/black"
         android:hint="Enter here"
