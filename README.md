@@ -13,6 +13,7 @@ If you have any feedback, please reach out to me at kshitijkumarsingh58@gmail.co
 
 
 Splash screen
+
 ![Splash screen](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/splash.png)
 
 Log In
