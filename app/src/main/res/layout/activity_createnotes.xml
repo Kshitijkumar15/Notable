@@ -27,18 +27,20 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
+        android:id="@+id/createcontentofnote"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    android:textSize="16sp"
-        android:layout_marginTop="60dp"
+        android:layout_below="@id/toolbarofcreatenote"
+        android:layout_marginTop="61dp"
         android:background="#FFFFFF"
-        android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:gravity="top"
+        android:layout_marginLeft="10dp"
         android:hint="Enter here"
-       android:layout_below="@id/toolbarofcreatenote"
-        android:id="@+id/createcontentofnote">
+        android:textColor="@color/black"
+        android:textSize="16sp">
 
     </EditText>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"

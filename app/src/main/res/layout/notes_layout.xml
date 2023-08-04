@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:elevation="5dp"
         app:cardUseCompatPadding="true"
+        android:forceHasOverlappingRendering="true"
         app:cardCornerRadius="5dp"
         app:cardMaxElevation="5dp">
 
@@ -19,27 +20,28 @@
         <LinearLayout
             android:id="@+id/note"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/notetitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="12"
                     android:padding="10dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:hint="This is working"
-                    android:textColor="@color/background"
-                    android:textSize="23sp">
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -48,6 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
+                    android:outlineSpotShadowColor="@color/white"
                     android:src="@drawable/baseline_more_vert_24">
 
                 </ImageView>

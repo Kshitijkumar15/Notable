@@ -187,15 +187,15 @@ public class notesActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if (item.getItemId() == R.id.logout) {
-//            firebaseAuth.signOut();
-//            finish();
-//            startActivity(new Intent(notesActivity.this, MainActivity.class));
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.logout) {
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(notesActivity.this, MainActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onStart() {

@@ -35,6 +35,7 @@ public class createnotes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        getSupportActionBar();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createnotes);
 
@@ -87,15 +88,15 @@ public class createnotes extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//
-//        if (item.getItemId() == android.R.id.home) {
-//            onBackPressed();
-//        }
-//        return super.onOptionsItemSelected(item);
-//
-//    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
 //@Override
 //public void onBackPressed() {
 //    builder.setTitle("Quit");

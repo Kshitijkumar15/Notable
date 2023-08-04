@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mgotoforgotpassword = findViewById(R.id.gotoforgotpassword);
         mgotosignup = findViewById(R.id.gotosignup);
         mprogressbarofmainactivity=findViewById(R.id.progressbarofmainactivity);
-
+        getSupportActionBar().hide();
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
         if(firebaseUser!=null){
