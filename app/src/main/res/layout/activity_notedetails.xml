@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECC372"
     tools:context=".notedetails">
 
 
@@ -11,13 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbarofnotedetail"
-        android:background="@color/white">
+        android:background="#ECC372">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="12dp"
             android:text="Details are displayed here"
+            android:background="#ECC372"
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -32,11 +34,13 @@
         android:layout_height="match_parent"
         android:layout_below="@id/toolbarofnotedetail"
         android:layout_marginTop="2dp"
-        android:background="@color/background"
-        android:gravity="center"
+        android:background="#FFFFFF"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:gravity="start"
         android:hint="Enter here"
         android:textColor="@color/black"
-        android:textSize="17sp">
+        android:textSize="20sp">
 
     </TextView>
 

@@ -3,10 +3,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 <color name="background">#FFFFFF</color>
-    <color name="gray">#E46612</color>
-    <color name="green">#EA1F1F</color>
-    <color name="lightgreen">#FFD600</color>
-    <color name="skyblue">#64DD17</color>
-    <color name="cyan">#29C1E6</color>
-    <color name="pink">#D59616E6</color>
+<!--    <color name="gray">#E46612</color>-->
+<!--    <color name="green">#EA1F1F</color>-->
+<!--    <color name="lightgreen">#FFD600</color>-->
+<!--    <color name="skyblue">#64DD17</color>-->
+<!--    <color name="cyan">#29C1E6</color>-->
+<!--    <color name="pink">#D59616E6</color>-->
+    <color name="gray">#EC9C66</color>
+    <color name="green">#EC8282</color>
+    <color name="lightgreen">#ECCA70</color>
+    <color name="skyblue">#79CF8C</color>
+    <color name="cyan">#6DBEE1</color>
+    <color name="pink">#D5CC9FE8</color>
 </resources>

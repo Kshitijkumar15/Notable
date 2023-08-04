@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbarofcreatenote"
-        android:background="@color/pink">
+        android:background="@color/lightgreen">
 
         <EditText
             android:layout_width="match_parent"

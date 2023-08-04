@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
-    android:padding="15dp">
+    android:padding="10dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/notecard"
@@ -39,7 +39,7 @@
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:hint="This is working"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="23sp"
                     android:textStyle="bold">
 
@@ -65,7 +65,7 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:text="this is"
-                android:textColor="@color/background"
+                android:textColor="@color/black"
                 android:textSize="15sp">
 
             </TextView>
