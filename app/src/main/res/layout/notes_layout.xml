@@ -38,7 +38,7 @@
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:hint="This is working"
-                    android:textColor="@color/black"
+                    android:textColor="@color/background"
                     android:textSize="23sp">
 
                 </TextView>
@@ -62,7 +62,7 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:text="this is"
-                android:textColor="@color/black"
+                android:textColor="@color/background"
                 android:textSize="15sp">
 
             </TextView>

@@ -42,9 +42,9 @@ public class createnotes extends AppCompatActivity {
         mcreatecontentofnote = findViewById(R.id.createcontentofnote);
         mcreatetitleofnote = findViewById(R.id.createtitleofnote);
 
-//        Toolbar toolbar = findViewById(R.id.toolbarofcreatenote);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = findViewById(R.id.toolbarofcreatenote);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
