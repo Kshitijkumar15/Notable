@@ -115,9 +115,28 @@ public class createnotes extends AppCompatActivity {
 //}
 
 
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        startActivity(new Intent(createnotes.this,notesActivity.class));
+//    }
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(createnotes.this,notesActivity.class));
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(createnotes.this);
+        alertDialog.setMessage("Changes are unsaved, do you want to exit");
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                startActivity(new Intent(createnotes.this,notesActivity.class));
+            }
+        });
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alertDialog.show();
     }
 }

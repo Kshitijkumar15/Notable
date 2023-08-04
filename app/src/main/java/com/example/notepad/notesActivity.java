@@ -246,22 +246,23 @@ public class notesActivity extends AppCompatActivity {
         return colorcode.get(number);
 
     }
+
 //    @Override
 //    public void onBackPressed() {
-////        super.onBackPressed();
-//     finishAffinity();
+//        super.onBackPressed();
+//        finishAffinity();
 //    }
-@Override
+    @Override
 public void onBackPressed() {
     AlertDialog.Builder alertDialog = new AlertDialog.Builder(notesActivity.this);
-    alertDialog.setMessage("Do you want to continue ?");
-    alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+    alertDialog.setMessage("Are you sure ?");
+    alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
            finishAffinity();
         }
     });
-    alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+    alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             dialog.cancel();

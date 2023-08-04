@@ -5,8 +5,8 @@
 <color name="background">#FFFFFF</color>
     <color name="gray">#cdc9c3</color>
     <color name="green">#c6ebc9</color>
-    <color name="lightgreen">#cfffa5</color>
-    <color name="skyblue">#a7c5eb</color>
+    <color name="lightgreen">#FFD600</color>
+    <color name="skyblue">#00BFA5</color>
     <color name="cyan">#00B8D4</color>
     <color name="pink">#E6A2F6</color>
 </resources>
