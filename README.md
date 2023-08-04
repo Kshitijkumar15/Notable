@@ -11,21 +11,39 @@ If you have any feedback, please reach out to me at kshitijkumarsingh58@gmail.co
 
 ## Screenshots
 
+
+Splash screen
 ![Splash screen](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/splash.png)
+
+Log In
 
 ![Log In](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/login.png)
 
+Sign Up
+
 ![Sign Up](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/signup.png)
+
+Forget
 
 ![Forget](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/forget.png)
 
+Main
+
 ![Main](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/main.png)
+
+Options
 
 ![Options](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/options.png)
 
+Details
+
 ![Details](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/details.png)
 
+Create
+
 ![Create](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/create.png)
+
+Log Out
 
 ![Log Out](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/logout.png)
 
