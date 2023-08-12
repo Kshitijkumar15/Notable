@@ -64,10 +64,6 @@ Log Out
 ![Log Out](https://github.com/Kshitijkumar15/Notepad/blob/Beginning/logout.png)
 
 
-# ThoughtKeeper App
-
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-
 ## Description
 
 ThoughtKeeper is an intuitive note-taking application that empowers you to capture your thoughts, manage lists of tasks, and more. The app seamlessly integrates with Firebase for user authentication and data storage, offering features such as user login, sign-up, logout, forgot password, and email verification. With ThoughtKeeper, you can effortlessly create, view, edit, and delete notes, providing you with a versatile tool to organize your ideas and tasks.
