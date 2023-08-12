@@ -13,11 +13,6 @@ The app helps you to note down your thoughts, list of tasks and etc.The app is c
 - Email verification to enhance account security.
 - Create, view, edit, and delete notes with ease.
 
-## Installation
-
-1. Clone the repository: `git clone https://github.com/YourUsername/ThoughtKeeper.git`
-2. Install dependencies: `[Include any specific instructions for dependency installation]`
-3. Configure Firebase: [Provide instructions for setting up Firebase authentication and storage]
 
 ## Usage
 
