@@ -76,9 +76,9 @@ ThoughtKeeper is an intuitive note-taking application that empowers you to captu
 
 ## Contact
 
-- Author: [Kshitij kumar singh]
-- Email: [kshitijkumarsingh58@gmail.com]
-- GitHub: [@YourUsername](https://github.com/kshitijkumar15)
+- Author: Kshitij kumar singh
+- Email: [Email](kshitijkumarsingh58@gmail.com)
+- GitHub: [Kshitijkumar15](https://github.com/kshitijkumar15)
 
 
 ## Feedback
