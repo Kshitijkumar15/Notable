@@ -66,7 +66,7 @@ Log Out
 
 ## Description
 
-ThoughtKeeper is an intuitive note-taking application that empowers you to capture your thoughts, manage lists of tasks, and more. The app seamlessly integrates with Firebase for user authentication and data storage, offering features such as user login, sign-up, logout, forgot password, and email verification. With ThoughtKeeper, you can effortlessly create, view, edit, and delete notes, providing you with a versatile tool to organize your ideas and tasks.
+Notepad App is an intuitive note-taking application that empowers you to capture your thoughts, manage lists of tasks, and more. The app seamlessly integrates with Firebase for user authentication and data storage, offering features such as user login, sign-up, logout, forgot password, and email verification. With Notepad App, you can effortlessly create, view, edit, and delete notes, providing you with a versatile tool to organize your ideas and tasks.
 
 
 
