@@ -73,7 +73,7 @@ Notepad App is an intuitive note-taking application that empowers you to capture
 ## Contact
 
 - Author: Kshitij kumar singh
-- Email: [Email](kshitijkumarsingh58@gmail.com)
+- Email: kshitijkumarsingh58@gmail.com
 - GitHub: [Kshitijkumar15](https://github.com/kshitijkumar15)
 
 
