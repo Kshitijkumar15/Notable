@@ -1,5 +1,8 @@
 # Notepad
 
+"Your Thoughts, Your Way!"
+
+
 The app helps you to note down your thoughts, list of tasks etc. The app is connected with Firebase for authentication and storage. Users can log in, sign up and log out. Additionally features like forgot password and email verification are provided. You can view, edit and delete a note. 
 
 
